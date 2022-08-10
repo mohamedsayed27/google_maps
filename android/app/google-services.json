@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "136781534517",
+    "project_id": "learning--maps-58772",
+    "storage_bucket": "learning--maps-58772.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136781534517:android:f327942ba57400a184a87c",
+        "android_client_info": {
+          "package_name": "com.example.google_maps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136781534517-mil9kt0ok1p3m83rl6m1r3i0o9vfuh5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuNErPEmvzjxb7xD3k3mIvADrDGlzkA58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136781534517-mil9kt0ok1p3m83rl6m1r3i0o9vfuh5s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
