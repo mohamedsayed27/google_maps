@@ -1,5 +1,9 @@
 const loginScreen = '/';
+const otpScreen = '/otp-screen';
+const mapScreen = '/map_screen';
 
+
+/// Custom Country Flag using regex
 String generateCountryFlag() {
   String countryCode = 'eg';
   String flag = countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
