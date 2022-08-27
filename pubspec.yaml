@@ -42,6 +42,9 @@ dependencies:
   firebase_storage: ^10.3.4
   pin_code_fields: ^7.4.0
   bloc: ^8.1.0
+  google_maps_flutter: ^2.1.12
+  geolocator: ^9.0.1
+  material_floating_search_bar: ^0.3.7
 
 dev_dependencies:
   flutter_test:

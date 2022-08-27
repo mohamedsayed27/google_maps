@@ -1,7 +1,7 @@
 const loginScreen = '/';
 const otpScreen = '/otp-screen';
 const mapScreen = '/map_screen';
-
+const googleAPIKey = 'AIzaSyDY6ojcfK5MTty0Q68s6Dx6JgYXunZhYIA';
 
 /// Custom Country Flag using regex
 String generateCountryFlag() {
