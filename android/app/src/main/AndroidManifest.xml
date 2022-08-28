@@ -2,7 +2,8 @@
     package="com.example.google_maps">
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-   <application
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <application
         android:label="google_maps"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

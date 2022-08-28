@@ -45,6 +45,8 @@ dependencies:
   google_maps_flutter: ^2.1.12
   geolocator: ^9.0.1
   material_floating_search_bar: ^0.3.7
+  url_launcher: 6.1.5
+  font_awesome_flutter: 10.1.0
 
 dev_dependencies:
   flutter_test:
