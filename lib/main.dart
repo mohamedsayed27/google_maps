@@ -22,6 +22,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   FirebaseAuth.instance.authStateChanges().listen((user) {
     if(user==null){
       initialRoute = loginScreen;
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: appRouter.generateRoute,
       initialRoute: initialRoute,
+      // home: PersonalDataScreen(),
     );
   }
 }

@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps/constants/colors.dart';
-import 'package:google_maps/domain/phone_auth_cubit/phone_auth_cubit.dart';
 import 'package:google_maps/helpers/locaton_helper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import '../../domain/auth/phone_auth_cubit.dart';
 import '../widgets/my_drawer.dart';
 
 class MapScreen extends StatefulWidget {

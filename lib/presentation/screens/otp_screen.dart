@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps/constants/colors.dart';
 import 'package:google_maps/constants/strings.dart';
-import 'package:google_maps/domain/phone_auth_cubit/phone_auth_cubit.dart';
-import 'package:google_maps/domain/phone_auth_cubit/phone_auth_state.dart';
+
 import 'package:pin_code_fields/pin_code_fields.dart';
+
+import '../../domain/auth/phone_auth_cubit.dart';
+import '../../domain/auth/phone_auth_state.dart';
 
 
 // ignore: must_be_immutable

@@ -5,7 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps/constants/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../domain/phone_auth_cubit/phone_auth_cubit.dart';
+import '../../domain/auth/phone_auth_cubit.dart';
+
 
 // ignore: must_be_immutable
 class MyDrawer extends StatelessWidget {
