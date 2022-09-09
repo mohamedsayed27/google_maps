@@ -47,7 +47,7 @@ class PlaceItem extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  subTitle.substring(2),
+                  subTitle,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,

@@ -20,7 +20,7 @@ class PlacesWebServices {
           await dio.get(placesSuggestionBaseUrl, queryParameters: {
         'input': place,
         'components': 'country:eg',
-        'type': 'address',
+        'type': '(regions)',
         'key': googleAPIKey,
         'sessiontoken': sessionToke
       });

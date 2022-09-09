@@ -5,13 +5,18 @@ import 'package:google_maps/presentation/screens/map_screen.dart';
 import 'package:google_maps/presentation/screens/otp_screen.dart';
 import 'package:google_maps/presentation/screens/personal_data_screen.dart';
 import 'constants/strings.dart';
+import 'data/repository/maps_repository.dart';
+import 'data/webservices/place_webservices.dart';
 import 'domain/auth/phone_auth_cubit.dart';
+import 'domain/maps/maps_cubit.dart';
 
 class AppRouter {
   PhoneAuthCubit? phoneAuthCubit;
-  AppRouter(){
+
+  AppRouter() {
     phoneAuthCubit = PhoneAuthCubit();
   }
+
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case loginScreen:
@@ -38,7 +43,12 @@ class AppRouter {
                   ),
                 ));
       case mapScreen:
-        return MaterialPageRoute(builder: (_) => const MapScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) =>
+                      MapsCubit(MapsRepository(PlacesWebServices())),
+                  child: const MapScreen(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

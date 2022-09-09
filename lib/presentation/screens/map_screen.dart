@@ -9,6 +9,7 @@ import 'package:google_maps/domain/maps/maps_state.dart';
 import 'package:google_maps/helpers/locaton_helper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../domain/auth/phone_auth_cubit.dart';
 import '../widgets/my_drawer.dart';
@@ -141,7 +142,9 @@ class _MapScreenState extends State<MapScreen> {
       openAxisAlignment: 0,
       width: isPortrait ? double.infinity : 500,
       debounceDelay: const Duration(milliseconds: 500),
-      onQueryChanged: (query) {},
+      onQueryChanged: (query) {
+        getChangeSuggestedPlaces(query);
+      },
       onFocusChanged: (_) {},
       transition: CircularFloatingSearchBarTransition(),
       actions: [
@@ -157,6 +160,11 @@ class _MapScreenState extends State<MapScreen> {
       ],
       leadingActions: const [],
     );
+  }
+
+  void getChangeSuggestedPlaces(String query){
+    final sessionToken = const Uuid().v4();
+    BlocProvider.of<MapsCubit>(context).getSuggestedPlaces(query, sessionToken);
   }
 
   @override

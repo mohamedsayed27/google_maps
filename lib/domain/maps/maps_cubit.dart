@@ -7,8 +7,8 @@ class MapsCubit extends Cubit<MapsState> {
 
   MapsCubit(this.mapsRepository) : super(MapsInitial());
 
-  void getSuggestedPlaces(String place, String sessionToke) {
-    mapsRepository.getSuggestionPlacesList(place, sessionToke).then((value) {
+  void getSuggestedPlaces(String place, String sessionToken) {
+    mapsRepository.getSuggestionPlacesList(place, sessionToken).then((value) {
       emit(SuggestedLoadedState(value));
     }).catchError((error) {
       emit(SuggestedErrorState(error.toString()));
