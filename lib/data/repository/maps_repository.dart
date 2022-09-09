@@ -6,7 +6,7 @@ class MapsRepository{
   final PlacesWebServices placesWebServices;
 
   MapsRepository(this.placesWebServices);
-  Future<List<dynamic>> getSuggestionPlacesList(
+  Future<List<PlacesSuggestionModel>> getSuggestionPlacesList(
       String place, String sessionToke) async {
     final suggestions = await placesWebServices.getSuggestionPlacesList(place, sessionToke);
     return suggestions.map((suggestion) => PlacesSuggestionModel.fromJso(suggestion)).toList();

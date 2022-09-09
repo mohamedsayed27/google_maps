@@ -1,13 +1,18 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps/constants/colors.dart';
+import 'package:google_maps/data/models/places_suggestion_model.dart';
+import 'package:google_maps/domain/maps/maps_cubit.dart';
+import 'package:google_maps/domain/maps/maps_state.dart';
 import 'package:google_maps/helpers/locaton_helper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../domain/auth/phone_auth_cubit.dart';
 import '../widgets/my_drawer.dart';
+import '../widgets/place_item.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -22,6 +27,8 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
     getMyCurrentPosition();
   }
+
+  List<PlacesSuggestionModel> suggestedPlacesList = [];
 
   PhoneAuthCubit phoneAuthCubit = PhoneAuthCubit();
 
@@ -64,9 +71,44 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  Widget buildSuggestionBloc() {
+    return BlocBuilder<MapsCubit, MapsState>(
+        builder: (context, state) {
+          if (state is SuggestedLoadedState) {
+            suggestedPlacesList = (state).suggestedPlacesList;
+            if (suggestedPlacesList.isNotEmpty) {
+              return buildSuggestionPlacesList();
+            } else {
+              return Container();
+            }
+          } else {
+            return Container();
+          }
+        }
+    );
+  }
+
+  Widget buildSuggestionPlacesList() {
+    return ListView.builder(
+      itemBuilder: (context,index){
+        return InkWell(
+          onTap: (){
+            searchController.close();
+          },
+          child: PlaceItem(placesSuggestionModel: suggestedPlacesList[index],),
+        );
+      },
+      itemCount: suggestedPlacesList.length,
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
+    );
+  }
+
   Widget buildFloatingSearchBar() {
     final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
+        MediaQuery
+            .of(context)
+            .orientation == Orientation.portrait;
     return FloatingSearchBar(
       builder: (context, transition) {
         return ClipRRect(
@@ -74,7 +116,9 @@ class _MapScreenState extends State<MapScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
-            children: const [],
+            children: [
+              buildSuggestionBloc(),
+            ],
           ),
         );
       },
@@ -111,7 +155,7 @@ class _MapScreenState extends State<MapScreen> {
               onPressed: () {}),
         )
       ],
-      leadingActions: [],
+      leadingActions: const [],
     );
   }
 
@@ -126,10 +170,10 @@ class _MapScreenState extends State<MapScreen> {
             position != null
                 ? buildGoogleMaps()
                 : const Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.blue,
-                    ),
-                  ),
+              child: CircularProgressIndicator(
+                color: AppColors.blue,
+              ),
+            ),
             buildFloatingSearchBar(),
           ],
         ),

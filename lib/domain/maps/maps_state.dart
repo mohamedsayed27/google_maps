@@ -1,9 +1,11 @@
+import '../../data/models/places_suggestion_model.dart';
+
 abstract class MapsState {}
 
 class MapsInitial extends MapsState {}
 
 class SuggestedLoadedState extends MapsState{
-  final List<dynamic> suggestedPlacesList;
+  final List<PlacesSuggestionModel> suggestedPlacesList;
   SuggestedLoadedState(this.suggestedPlacesList);
 }
 
