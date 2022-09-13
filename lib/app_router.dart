@@ -19,14 +19,14 @@ class AppRouter {
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case loginScreen:
+      case personalScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<PhoneAuthCubit>.value(
             value: phoneAuthCubit!,
             child: PersonalDataScreen(),
           ),
         );
-      case personalScreen:
+      case loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<PhoneAuthCubit>.value(
             value: phoneAuthCubit!,

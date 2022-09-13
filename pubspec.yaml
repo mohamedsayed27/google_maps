@@ -51,6 +51,54 @@ dependencies:
   cloud_firestore: ^3.3.0
   dio: ^4.0.6
   uuid: 3.0.6
+  flutter_native_splash: ^2.2.7
+
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/logo.png
+
+  android_12:
+    image: assets/images/logo.png
+    icon_background_color: "#ffffff"
+    icon_background_color_dark: "#121212"
+
+  web: false
+
+    # flutter_native_splash-acceptance.yaml
+    #flutter_native_splash:
+    # color: "#ffffff"
+    #image: assets/logo-acceptance.png
+    #branding: assets/branding-acceptance.png
+    #color_dark: "#121212"
+    #image_dark: assets/logo-acceptance.png
+    #branding_dark: assets/branding-acceptance.png
+
+    #android_12:
+    # image: assets/logo-acceptance.png
+    #icon_background_color: "#ffffff"
+    #image_dark: assets/logo-acceptance.png
+    #icon_background_color_dark: "#121212"
+
+    #web: false
+
+    # flutter_native_splash-production.yaml
+    #flutter_native_splash:
+    #color: "#ffffff"
+    #image: assets/logo-production.png
+    #branding: assets/branding-production.png
+    #color_dark: "#121212"
+    #image_dark: assets/logo-production.png
+    #branding_dark: assets/branding-production.png
+
+    #android_12:
+    #image: assets/logo-production.png
+    #icon_background_color: "#ffffff"
+  #image_dark: assets/logo-production.png
+  #icon_background_color_dark: "#121212"
+
+  #web: false
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,9 +122,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

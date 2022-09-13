@@ -14,4 +14,13 @@ class MapsCubit extends Cubit<MapsState> {
       emit(SuggestedErrorState(error.toString()));
     });
   }
+
+
+  void getPlaceLocation(String placeId, String sessionToken) {
+    mapsRepository.getPlaceLocation(placeId, sessionToken).then((value) {
+      emit(PlaceLocationLoadedState(value));
+    }).catchError((error) {
+      emit(PlaceLocationErrorState(error.toString()));
+    });
+  }
 }
