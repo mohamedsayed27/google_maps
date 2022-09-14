@@ -172,7 +172,7 @@ class _MapScreenState extends State<MapScreen> {
   }
   void buildCurrentLocationMarker(){
     currentLocationMarker = Marker(
-      markerId:  MarkerId('5'),
+      markerId:  const MarkerId('5'),
       position: LatLng(position!.latitude, position!.longitude),
       infoWindow: const InfoWindow(
         title: 'your current location',
